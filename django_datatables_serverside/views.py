@@ -8,24 +8,15 @@ from django.views import View
 
 
 class _DataTablesServer:
-    def __init__(
-            self, request, queryset,
-            custom_value_getters=None,
-            surrogate_columns_search=None,
-            surrogate_columns_sort=None):
+    def __init__(self, request, queryset, custom_value_getters, 
+                 surrogate_columns_search, surrogate_columns_sort):
         self.request = request
         self.queryset = queryset
 
         # dicts of functions for refining the data:
         self.custom_value_getters = custom_value_getters
-        if self.custom_value_getters is None:
-            self.custom_value_getters = {}
         self.surrogate_columns_search = surrogate_columns_search
-        if self.surrogate_columns_search is None:
-            self.surrogate_columns_search = {}
         self.surrogate_columns_sort = surrogate_columns_sort
-        if self.surrogate_columns_sort is None:
-            self.surrogate_columns_sort = {}
 
         # memo for all the (received) parameters already processed/parsed
         self.parameters_processed_memo = set()
@@ -158,7 +149,7 @@ class _DataTablesServer:
                 if field in self.custom_value_getters:
                     row.append(self.custom_value_getters[field](instance))
                 else:
-                    row.append(getattr(instance, field))
+                    row.append(reduce(getattr, field.split('__'), instance))
             data_to_return['data'].append(row)
 
         return data_to_return
@@ -173,9 +164,9 @@ class _DataTablesServer:
 
 class ServerSideDataTableView(View, ABC):
 
-    custom_value_getters = None
-    surrogate_columns_search = None
-    surrogate_columns_sort = None
+    custom_value_getters = {}
+    surrogate_columns_search = {}
+    surrogate_columns_sort = {}
 
     @property
     @abstractmethod
