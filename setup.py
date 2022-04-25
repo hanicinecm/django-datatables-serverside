@@ -4,8 +4,8 @@ from pathlib import Path
 root = Path(__file__).parent.resolve()
 
 description = (
-    "A basic yet customisable django app for integration of DataTables.net plugin into"
-    "Django 3 projects in the server-side mode."
+    "A basic yet customisable django app for integration of DataTables.net plugin into "
+    "Django projects in the server-side mode."
 )
 # Get the long description from the README file
 long_description = (root / "README.rst").read_text(encoding="utf-8")
