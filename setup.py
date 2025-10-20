@@ -14,7 +14,7 @@ bug_reports = "https://github.com/hanicinecm/django-datatables-serverside/issues
 
 setup(
     name="django-datatables-serverside",
-    version="1.0.0",
+    version="1.0.1",
     description=description,
     long_description=long_description,
     long_description_content_type="text/x-rst",
