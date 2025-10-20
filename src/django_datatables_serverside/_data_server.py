@@ -4,9 +4,10 @@ from functools import reduce
 from django.db.models import Q
 from django.http import JsonResponse
 
+
 # Monkey-patch this method: HttpRequest.is_ajax() was removed in Django 3.1
 def _is_ajax(request):
-    return request.META.get('HTTP_X_REQUESTED_WITH') == 'XMLHttpRequest'
+    return request.META.get("HTTP_X_REQUESTED_WITH") == "XMLHttpRequest"
 
 
 class DataTablesServer:
@@ -44,7 +45,7 @@ class DataTablesServer:
         request_value = self.request.GET[key]
         self.parameters_processed_memo.add(key)
         return request_value
-        
+
     def _parse_ajax_request(self, request):
         if not _is_ajax(request):
             self.error_message = "ERROR: Unknown request type, expected AJAX request!"

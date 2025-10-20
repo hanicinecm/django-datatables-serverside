@@ -1,9 +1,7 @@
-|Test action| |Codecov| |GitHub license| |PyPI version| |PyPI pyversions| |Code style|
+|Test action| |GitHub license| |PyPI version| |PyPI pyversions| |Code style|
 
 .. |Test action| image:: https://github.com/hanicinecm/django-datatables-serverside/workflows/tests/badge.svg
    :target: https://github.com/hanicinecm/django-datatables-serverside/actions
-.. |Codecov| image:: https://codecov.io/gh/hanicinecm/django-datatables-serverside/branch/master/graph/badge.svg?token=J3LM21MMT7
-   :target: https://codecov.io/gh/hanicinecm/django-datatables-serverside
 .. |GitHub license| image:: https://img.shields.io/github/license/hanicinecm/django-datatables-serverside.svg
    :target: https://github.com/hanicinecm/django-datatables-serverside/blob/master/LICENSE
 .. |PyPI version| image:: https://img.shields.io/pypi/v/django-datatables-serverside.svg
